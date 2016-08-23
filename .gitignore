@@ -38,3 +38,5 @@ vignettes/*.pdf
 
 # Rproj file
 *.Rproj
+
+swirl_courses-master/*
