@@ -1,9 +1,9 @@
 - Class: meta
-  Course: R Programming
-  Lesson: Basic Building Blocks
-  Author: Nick Carchedi
+  Course: dsfl-swirl
+  Lesson: Variables and vectors
+  Author: Jerid Francom
   Type: Standard
-  Organization: JHU Biostat
+  Organization: Wake Forest University
   Version: 2.2.0
 
 - Class: text
