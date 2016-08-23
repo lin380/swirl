@@ -1,0 +1,49 @@
+- Class: meta
+  Course: My Course
+  Lesson: Second Lesson
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.2
+
+- Class: text
+  Output: Welcome to the class!
+
+- Class: cmd_question
+  Output: To see what variables we have available we can type ls().
+  CorrectAnswer: ls()
+  AnswerTests: omnitest(correctExpr='ls()')
+  Hint: Type ls()
+  
+- Class: cmd_question
+  Output: Let's see the words
+  CorrectAnswer: dataset$word %>% table
+  AnswerTests: omnitest(correctExpr='dataset$word %>% table')
+  Hint: Type dataset$word %>% table
+
+- Class: figure
+  Output: You should see a plot here!
+  Figure: plot.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: Here's a new data set. To view the first few observations, type head(dataset)
+  CorrectAnswer: head(dataset)
+  AnswerTests: omnitest(correctExpr='head(dataset)')
+  Hint: Type head(dataset) to see the top of the dataset
+
+- Class: text
+  Output: As you can see there are a number of rows and columns. The rows correspond to observations, in this case words from a series of tweets. The columns correspond to information about each of these words including the word itself, what language it's in etc.
+
+
+- Class: cmd_question
+  Output: Let's plot two numerical columns. Type, ggplot(dataset, aes(x = pre.x.score, y = pre.y.score)) + geom_point()
+  CorrectAnswer: ggplot(dataset, aes(x = pre.x.score, y = pre.y.score)) + geom_point()
+  AnswerTests: omnitest(correctExpr='ggplot(dataset, aes(x = pre.x.score, y = pre.y.score)) + geom_point()')
+  Hint: ggplot(dataset, aes(x = pre.x.score, y = pre.y.score)) + geom_point()
+
+- Class: cmd_question
+  Output: Let's add another dimension by coloring the points by language. Type the same expression, but add 'color = pred'
+  CorrectAnswer: ggplot(dataset, aes(x = pre.x.score, y = pre.y.score, color = pred)) + geom_point()
+  AnswerTests: omnitest(correctExpr='ggplot(dataset, aes(x = pre.x.score, y = pre.y.score, color = pred)) + geom_point()')
+  Hint: ggplot(dataset, aes(x = pre.x.score, y = pre.y.score, color = pred)) + geom_point()

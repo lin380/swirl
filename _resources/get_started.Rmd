@@ -1,0 +1,434 @@
+---
+title: "Swirl tutorial (startup)"
+author: "Jerid Francom"
+date: "Tuesday August 2, 2016"
+output: 
+  html_document: 
+    number_sections: yes
+    theme: journal
+    toc: yes
+---
+
+```{r startup, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Startup
+
+First find out what directory you will be loading the course from
+```{r eval = TRUE}
+getwd()
+```
+
+Then load the library
+
+```{r eval = TRUE}
+library(swirl)
+library(swirlify) # start up `swirlify`
+```
+
+Now you can create a new course and lesson sheet.
+
+```{r}
+new_lesson("My Lesson", "My Course") # create new lesson
+```
+
+To resume working on an existing lesson (note that you make reference to the .yaml file)
+```{r}
+set_lesson("My_Course/My_Lesson/lesson.yaml")
+```
+
+To find out what lesson you're working on...
+
+```{r}
+get_current_lesson()
+```
+
+# Course structure
+
+A `MANIFEST` file lists the order of the lessons for students. To add a current lesson to that file.
+
+
+```{r}
+add_to_manifest()
+```
+
+
+To include data to be used in lessons, you should add this function to the `initLesson.R` file:
+
+```
+.get_course_path <- function(){
+  tryCatch(swirl:::swirl_courses_dir(),
+           error = function(c) {file.path(find.package("swirl"),"Courses")}
+  )
+}
+```
+
+Then using `.get_course_path()` and `file.path()` you can add data to the lesson.
+
+```
+.get_course_path <- function(){
+  tryCatch(swirl:::swirl_courses_dir(),
+           error = function(c) {file.path(find.package("swirl"),"Courses")}
+  )
+}
+
+dataset <- read.csv(file.path(.get_course_path(), "My_Course", "My_Lesson", "data.csv"))
+```
+
+The dataset will then be ready for the student on loading the lesson.^[Question: where to put the `data.csv` file? Should it go in `My_Course/data/data.csv`]
+
+# Writing lessons
+
+## General structure
+
+Lessons are sequences of questions of the following general structure:
+
+```
+- Class: [type of question]
+  Key1: [value1]
+  Key2: [value2]
+
+- Class: [type of question]
+  Key1: [value1]
+  Key2: [value2]
+...
+```
+
+Questions have a `-` marking them as questions and a class associated. 
+
+The first question in all lessons is a "meta question" which provides the basic information about the course.
+
+```
+- Class: meta
+  Course: My Course
+  Lesson: My Lesson
+  Author: Dr. Jerid Francom
+  Type: Standard
+  Organization: Wake Forest University
+  Version: 2.5
+```
+
+## Message questions
+
+You can add `text` class questions using the following function in the console.
+
+- `wq_message("Message goes here!")` 
+
+## Command questions
+
+A command question prompts a student to add an expression at the console.
+
+```{r eval=TRUE}
+args(wq_command)
+```
+
+```
+- Class: cmd_question
+  Output: Add 2 and 2 together using the addition operator.
+  CorrectAnswer: 2 + 2
+  AnswerTests: omnitest(correctExpr='2 + 2')
+  Hint: Just type 2 + 2.
+```
+
+## Multiple choice questions
+
+Options are presented in a different order each time. `AnswerChoices` list should be separated by semicolons `;`.
+
+- `wq_multiple()` function
+
+```{r eval=TRUE}
+args(wq_multiple)
+```
+
+```
+- Class: mult_question
+  Output: What is the capital of Canada?
+  AnswerChoices: Toronto;Montreal;Ottawa;Vancouver
+  CorrectAnswer: Ottawa
+  AnswerTests: omnitest(correctVal='Ottawa')
+  Hint: This city contains the Rideau Canal.
+```
+
+## Figure questions
+
+These questions are designed to display figures to students. `Figure` is an `.R` script that will draw the figure. `FigureType` is either `new` or `add`, where 'new' creates a new figure and 'add' adds a layer to the existing figure.
+
+- `wq_figure()`
+
+```{r eval=TRUE}
+args(wq_figure)
+```
+
+```
+- Class: figure
+  Output: Look at this figure!
+  Figure: draw.R
+  FigureType: new
+```
+
+## Video/ URL questions
+
+`VideoLink` is a URL that will be opened in a browser.
+
+- `wq_video()`
+
+```{r eval=TRUE}
+args(wq_video)
+```
+
+```
+- Class: video
+  Output: Do you want to go to Google?
+  VideoLink: https://www.google.com/
+```
+
+## Numerical questions
+
+- `wq_numerical()`
+
+```{r eval=TRUE}
+args(wq_numerical)
+```
+
+```
+- Class: exact_question
+  Output: How many of the Rings of Power were forged by the elven-smiths of
+    Eregion?
+  CorrectAnswer: 19
+  AnswerTests: omnitest(correctVal = 19)
+  Hint: Three Rings for the Elven-kings under the sky, Seven for the Dwarf-lords
+  in their halls of stone, Nine for Mortal Men doomed to die...
+```
+
+## Text questions
+
+- `wq_text()`
+
+```{r eval=TRUE}
+args(wq_text)
+```
+
+```
+- Class: text_question
+  Output: What is the name of the programming language invented by 
+    John Chambers?
+  CorrectAnswer: 'S'
+  AnswerTests: omnitest(correctVal = 'S')
+  Hint: What comes after R in the alphabet?
+```
+
+## Script Questions
+
+> Script questions might be the hardest questions to write, however the payoff in a student’s understanding of how R works is proportional. Script questions require that you write a custom answer test in order to evaluate the correctness of a script that a student has written. Writing custom answer tests is covered thoroughly in the answer testing section.
+
+`Script` is an `.R` script that will be opened with the student reaches the question. This script needs to be in a subdirectory `scripts` in the lesson folder. Another version of this script which contains the correct answer should also appear.
+
+```
+scripts/
+-------script.R
+-------script-correct.R
+```
+
+An example: `fib.R`
+
+```
+# Write a function that returns the nth fibonacci number. Think about
+# what we just reviewed with regard to writing recurisive functions.
+
+fib <- function(n){
+  # Write your code here.
+}
+```
+
+And the correct version: `fib-correct.R`
+
+```
+# Write a function that returns the nth fibonacci number. Think about
+# what we just reviewed with regard to writing recurisive functions.
+
+fib <- function(n){
+  if(n == 0 || n == 1){
+    return(n)
+  } else {
+    return(fib(n-2) + fib(n-1))
+  }
+}
+```
+
+Here's the custom test file `custom_tests.R` which includes the `test_fib()` function:^[I'm going to need to do some looking into how to create custom tests!]
+
+```
+test_fib <- function() {
+  try({
+    func <- get('fib', globalenv())
+    t1 <- identical(func(1), 1)
+    t2 <- identical(func(20), 6765)
+    t3 <- identical(sapply(1:12, func), c(1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144))
+    ok <- all(t1, t2, t3)
+  }, silent = TRUE)
+  exists('ok') && isTRUE(ok)
+}
+```
+
+- `wq_script()`
+
+```{r eval=TRUE}
+args(wq_script)
+```
+
+## Answer testing
+
+Answer testing determines if a student's answer is correct. A correct answer results in an answer test with a value of `TRUE`. If `FALSE` is returned, then the answer is considered incorrect. Swirl has provided many of the types of tests that authors/ teachers most likely will use. 
+
+```
+- Class: cmd_question
+  Output: Assign the mean all the numbers from 1 to 10 to a variable called x.
+  CorrectAnswer: x <- mean(1:10)
+  AnswerTests: var_is_a('numeric', 'x');omnitest(correctExpr = 'x <- mean(1:10)')
+  Hint: Just type x <- mean(1:10).
+```
+
+### Built-in answer tests
+
+#### omnitest() 
+
+The `omnitest()` function is by and large is the main function for answer testing. It can handle correct values, correct expressions, or both.
+
+**Testing for an expression**
+
+```
+- Class: cmd_question
+  Output: Plot the integers from 1 to 10.
+  CorrectAnswer: plot(1:10)
+  AnswerTests: omnitest(correctExpr = 'plot(1:10)')
+  Hint: Try using the plot() function.
+```
+
+**Testing for a value**
+
+```
+- Class: cmd_question
+  Output: Enter an expression that evaluates to the number 4.
+  CorrectAnswer: 4
+  AnswerTests: omnitest(correctVal = 4)
+  Hint: Any expression will work as long as it evalualtes to 4!
+```
+
+**Testing for an expression or a value**
+
+```
+- Class: cmd_question
+  Output: What's the result of adding 2 and 2?
+  CorrectAnswer: 2 + 2
+  AnswerTests: omnitest(correctExpr='2 + 2', correctVal = 4)
+  Hint: Try using the addition operator.
+```
+
+#### any_of_exprs()
+
+This function allows you to evaluate whether a student has used on of several expressions.
+
+```
+- Class: cmd_question
+  Output: Enter an expression that creates a vector of all of the integers from
+    1 to 10.
+  CorrectAnswer: 1:10
+  AnswerTests: any_of_exprs('1:10', 'seq(1, 10, 1)')
+  Hint: Try using the colon operator.
+```
+
+#### expr_creates_var()
+
+This function prevents a variable from being changed during a students answer.
+
+```
+- Class: cmd_question
+  Output: Assign 10 to the variable x.
+  CorrectAnswer: x <- 10
+  AnswerTests: omnitest(correctExpr='x <- 10')
+  Hint: Just type x <- 10.
+
+- Class: cmd_question
+  Output: Assign x*2 to the variable x.
+  CorrectAnswer: x <- x*2
+  AnswerTests: omnitest(correctExpr='x <- x*2');expr_creates_var('x')
+  Hint: Just type x <- x*2.
+```
+
+#### expr_uses_func()
+
+Tests whether a student has used a particular function in answering the question.
+
+```
+- Class: cmd_question
+  Output: Use the mean() function to find the mean of any vector.
+  CorrectAnswer: mean(1:10)
+  AnswerTests: expr_uses_func('mean')
+  Hint: Use the mean function with any numeric vector as an argument.
+```
+
+#### val_matches()
+
+This function is used exclusively with text questions. It uses regular expressions to determine if the text answer is correct.
+
+```
+- Class: text_question
+  Output: What is the capital of Chile?
+  CorrectAnswer: Santiago
+  AnswerTests: val_matches('[S|s]antiago')
+  Hint: Ryhmes with Zandiago.
+```
+
+#### More
+
+For more on `AnswerTests` view the [Swirl Course Network](http://swirlstats.com/scn/).
+
+# Testing lessons
+
+## Demoing a lesson
+
+To start a lesson demo `demo_lesson()` will do it. You can also skip to a particular question by using `demo_lesson(from = 6)`, for example.
+
+## Testing a lesson
+
+Just run `test_lesson()` to test the general syntax and structure of the lesson. To test every lesson in a course `test_course()`. Messages will be printed to the console to alert of any problems.
+
+# Sharing courses
+
+## As a file
+
+Create a `.swc` file for a course with `pack_course()` once your are in one of the lessons in the course. (You can check with `get_lesson()` and change with `set_lesson()`.)
+
+The file produced can be shared like any other file, via email, dropbox, Sakai, etc. and then installed (interactively) with the `install_course()` function using the `swirl` package. 
+
+## On GitHub
+
+Developing on GitHub is good practice. It facilitates getting help from other 'swirlers' and makes the course instantly available. Using the `install_course_github()`. The course directory must be in the root of the git repository. 
+
+You can browse some of the available courses on the [Swirl Course Network](http://swirlstats.com/scn/). 
+
+## Swirl Course Network
+
+This network aims to provide a repository for all publicly available Swirl courses. The [homepage](http://swirlstats.com/scn/) has more information.
+
+
+1. Create an .swc file for your course.
+2. Fork https://github.com/swirldev/scn on GitHub.
+3. Add the .swc file to your fork.
+3. Add an Rmd file to your fork like this one. You can include a description of your course, authors, a course website, and how to install your course.
+4. Run rmarkdown::render_site() when your current directory is set to your fork.
+5. Add, commit, and push your changes to GitHub, then send us a Pull Request.
+6. After adding your course to the SCN students will be able to install your course using install_course("[Name of Your Course]") in swirl.
+
+# Swirl in the classroom
+
+## Logging student progress
+
+Swirl can create a log of student progress for instructors to evaluate. Logging is disabled by default, but can be enabled in the `initLesson.R` file with `swirl_options(swirl_logging = TRUE)`.
+
+One convenient method is through Google Forms.
+
+## Using Google Forms
+
+[Here is the documentation](https://github.com/seankross/Google_Forms_Course)
