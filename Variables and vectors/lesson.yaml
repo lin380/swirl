@@ -123,7 +123,7 @@
 
 - Class: cmd_question
   Output: 'Numeric vectors can be used in arithmetic expressions. Type the following
-    to see what happens: z * 2 + 100.'
+    to see what happens, z * 2 + 100.'
   CorrectAnswer: z * 2 + 100
   AnswerTests: omnitest(correctExpr='z * 2 + 100')
   Hint: Enter z * 2 + 100, without assigning the result to a variable. The `*` symbol
