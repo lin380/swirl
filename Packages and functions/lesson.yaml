@@ -54,43 +54,9 @@
     length of the vector.
 
 - Class: text
-  Output: In the following question you will be asked to modify a script that will
-    appear as soon as you move on from this question. When you have finished modifying
-    the script, save your changes to the script and type submit() and the script
-    will be evaluated. There will be some comments in the script that opens up, so be
-    sure to read them!
-
-- Class: script
-  Output: The last R expression to be evaluated in a function will become the 
-    return value of that function. We want this function to take one argument, 
-    x, and return x without modifying it. Delete the pound
-    sign so that x is returned without any modification. Make sure to save your
-    script before you type submit().
-  AnswerTests: test_func1()
-  Hint: Make sure to delete the pound sign so the last expression in the function is just x.
-  Script: boring_function.R
-
-- Class: cmd_question
-  Output: "Now that you've created your first function let's test it! Type: 
-    boringFunction('My first function!'). If your function works, it should
-    just return the string: 'My first function!'"
-  CorrectAnswer: "boringFunction('My first function!')"
-  AnswerTests: omnitest(correctExpr="boringFunction('My first function!')")
-  Hint: "Test boringFunction by typing: boringFunction('My first function!')"
-
-- Class: text
-  Output: "Congratulations on writing your first function. By writing functions,
-    you can gain serious insight into how R works. As John Chambers, the creator
-    of R once said:\n\n To understand computations in R, two slogans are helpful:
-    1. Everything that exists is an object. 2. Everything that happens is a function call."
-
-- Class: cmd_question
-  Output: "If you want to see the source code for any function, just type the
-    function name without any arguments or parentheses. Let's try this out with
-    the function you just created. Type: boringFunction to view its source code."
-  CorrectAnswer: boringFunction
-  AnswerTests: omnitest(correctExpr='boringFunction')
-  Hint: "To see the source code for boringFunction just type: boringFunction"
+  Output: "There are many functions available in the default installation of R, 'mean()' 
+    is one of them You can also write your own functions, or custom functions. 
+    Let's take a look at custom functions now."
 
 - Class: text
   Output: The goal in writing a custom function is to create a reusable set of R 
@@ -99,7 +65,7 @@
 
 - Class: cmd_question
   Output: When you create a custom function that function can be created as part of 
-    the analysis script or it can be 'imported' from another script that's sole 
+    the analysis script 'inline' or it can be 'imported' from another script that's sole 
     purpose is to organize useful functions for potential use in multiple analyses. 
     To import functions from another script we can use the function 'source()' and 
     include a path to the script with the functions we want to import. I've already

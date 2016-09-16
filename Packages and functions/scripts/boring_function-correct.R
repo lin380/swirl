@@ -1,3 +1,0 @@
-boringFunction <- function(x) {
-  x
-}
