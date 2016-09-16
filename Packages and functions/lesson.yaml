@@ -184,22 +184,34 @@
   Hint: Type 'sessionInfo()'.
 
 - Class: text
-  Output: It is not always necessary to load an entire package into the R workspace. It can sometimes be the case that you will need to use a function or two from a package and very limited times. In cases like this it sometimes makes sense to reference the downloaded, but not loaded, package via the '::' operator. For example to use the function 'tokenize()' from the 'quanteda' package, without loading it, you can type, 'quanteda::tokenize()'.
+  Output: It is not always necessary to load an entire package into the R workspace. 
+    It can sometimes be the case that you will need to use a function or two from a 
+    package and very limited times. In cases like this it sometimes makes sense to 
+    reference the downloaded, but not loaded, package via the '::' operator. For 
+    example to use the function 'tokenize()' from the 'quanteda' package, without 
+    loading it, you can type, 'quanteda::tokenize()', for example.
 
 - Class: text
-  Output: The '::' operator is also helpful when used in combination with RStudio's TAB functionality. If you type 'quanteda::' and then hit the TAB key on your keyboard a list of the available functions in this package appears. This can be very helpful to explore functions on the fly.
-
-- Class: cmd_question
-  Output: Furthermore, many, but not all, packages come with tutorials, or 'vignettes'. To access a package's vignette you can use the 'browseVignettes()' function. Type 'browseVignettes("quanteda")' now, and browse the 'Getting Started Guide' vignette.
-  CorrectAnswer: browseVignettes("quanteda")
-  AnswerTests: omnitest(correctExpr='browseVignettes("quanteda")')
-  Hint: Type 'browseVignettes("quanteda")'.
+  Output: The '::' operator is also helpful when used in combination with RStudio's 
+    TAB functionality. If you type 'quanteda::' and then hit the TAB key on your 
+    keyboard a list of the available functions in this package appears. This can be 
+    very helpful to explore functions on the fly.
 
 - Class: text
-  Output: If a package does or does not have vignette it's often worth it to search the internet for other tutorials to get experience with how R users are using the package.
+  Output: Furthermore, many, but not all, packages come with tutorials, or 'vignettes'. 
+    To read a vignette, browse the 'Packages' pane in RStudio and find the package. Then
+    Look at the lines before the 'Help Pages'. If there is a vignette, it will be listed 
+    there. 
 
 - Class: text
-  Output: This concludes this lesson on packages and functions. Functions are a powerful programming tool for efficient and reproducible results. There is much more to learn about functions, but we've covered the bases. I encourage you to do your own research.
+  Output: If a package does or does not have vignette it's often worth it to search the internet 
+    for other tutorials to get experience with how R users are using the package.
+
+- Class: text
+  Output: This concludes this lesson on packages and functions. Functions are a 
+    powerful programming tool for efficient and reproducible results. There is 
+    much more to learn about functions, but we've covered the bases. I encourage 
+    you to do your own research.
 
 - Class: mult_question
   Output: Would you like to submit the log of this lesson to Google Forms so
