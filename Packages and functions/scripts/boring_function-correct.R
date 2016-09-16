@@ -1,0 +1,3 @@
+boringFunction <- function(x) {
+  x
+}
