@@ -155,47 +155,28 @@
     Type 'lapply(iris[, 1:4], mean)'.
   CorrectAnswer: lapply(iris[, 1:4], mean)
   AnswerTests: omnitest(correctExpr='lapply(iris[, 1:4], mean)')
-  Hint: Type 'lapply(iris[, 1:4], mean).
+  Hint: Type 'lapply(iris[, 1:4], mean)'.
 
 - Class: text
-  Output: We now have an understanding what types of data 'lapply()' takes, now let's 
-    look at the function part that is applied to the data. We've used some basic functions
-    that take one argument up until now but 'lapply()' will apply any function to our 
-    input data -including a custom function. The custom function can be already defined, 
-    or, as we will see now, can be created inside the 'lapply()' function.
-
-- Class: cmd_question
-  Output: Say we wanted to subtract the mean for a vector from each of the elements 
-    inside the same vector. To do this we tell 'lapply()' that we want to define a 
-    function to apply to the data. Type 'lapply(iris[, 1:4], function(x) { x - mean(x) })'.
-  CorrectAnswer: lapply(iris[, 1:4], function(x) { x - mean(x) })
-  AnswerTests: omnitest(correctExpr='lapply(iris[, 1:4], function(x) { x - mean(x) })')
-  Hint: Type 'lapply(iris[, 1:4], function(x) { x - mean(x) })'.
+  Output: We now have an understanding what types of data 'lapply()' takes, its 
+    important to note that, up until now, we've used some basic functions
+    that take one argument  but 'lapply()' will apply any function to our 
+    input data -including a custom function. This can be very helpful indeed.
 
 - Class: text
-  Output: So let's break this down. the 'function(x)' part of the command just 
-    tells 'lapply()' that we are defining a new function and that 'x' will be the 
-    placeholder for where the input should be added to the operation. We see here that 
-    to subtract the mean of the vector from each element of the vector we need to use 
-    our defined variable 'x' twice. Our custom function here is quite basic, but in
-    practice you may find it necessary to create more powerful and complex functions to
-    apply to a set of vectors.
-
-- Class: text
-  Output: Having now covered the input and function to apply to 'lapply()' it is 
-    important to point out that 'lapply()' has a sister function 'sapply()' which 
+  Output: It is also important to point out that 'lapply()' has a sister function 'sapply()' which 
     works just the same as 'lapply()' but instead of taking a list of vectors as input 
     and returning a list as output, it returns vectors. The 's' in 'sapply()' can be
     understood as 'simplify' apply.
 
 - Class: cmd_question
   Output: Let's change 'lapply()' to 'sapply()' for our last command and see what 
-    happens. Type 'sapply(iris[, 1:4], function(x) { x - mean(x) })'. (Remember you can
+    happens. Type 'sapply(iris[, 1:4], mean)'. (Remember you can
     use the up and down arrows on your keyboard to get commands you have previously
     typed in this session.)
-  CorrectAnswer: sapply(iris[, 1:4], function(x) { x - mean(x) })
-  AnswerTests: omnitest(correctExpr='sapply(iris[, 1:4], function(x) { x - mean(x) })')
-  Hint: Type 'sapply(iris[, 1:4], function(x) { x - mean(x) })'.
+  CorrectAnswer: sapply(iris[, 1:4], mean)
+  AnswerTests: omnitest(correctExpr='sapply(iris[, 1:4], mean)')
+  Hint: Type 'sapply(iris[, 1:4], mean)'.
 
 - Class: text
   Output: To recap, in R all objects are vectors. This means that applying an operation 
