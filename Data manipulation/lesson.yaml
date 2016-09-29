@@ -152,7 +152,7 @@
   Hint: Type 'str_count(belc$texts, "/eng")'.
 
 - Class: cmd_question
-  Output: With this function in hand we can create a new column in our `belc` dataset with `mutate()`. Type 'mutate(belc, eng.words = str_count(belc$texts, "/eng"))'.
+  Output: With this function in hand we can create a new column in our `belc` dataset with `mutate()`. Type 'belc <- mutate(belc, eng.words = str_count(belc$texts, "/eng"))'.
   CorrectAnswer: belc <- mutate(belc, eng.words = str_count(belc$texts, "/eng"))
   AnswerTests: omnitest(correctExpr='belc <- mutate(belc, eng.words = str_count(belc$texts, "/eng"))')
   Hint: Type 'belc <- mutate(belc, eng.words = str_count(belc$texts, "/eng"))'.
@@ -166,7 +166,7 @@
 - Class: cmd_question
   Output: Now add a new column called 'all.words' in the same way that counts words tagged as English and non-English. Your `str_count()` will look like this 'str_count(belc$texts, "/(eng|other)")'.
   CorrectAnswer: belc <- mutate(belc, all.words = str_count(belc$texts, "/(eng|other)"))
-  AnswerTests: omnitest(correctExpr='belc <- mutate(belc, all.words = str_count(belc$texts, "/(eng|other)"))', correctVal=VAL)
+  AnswerTests: omnitest(correctExpr='belc <- mutate(belc, all.words = str_count(belc$texts, "/(eng|other)"))')
   Hint: Type 'belc <- mutate(belc, all.words = str_count(belc$texts, "/(eng|other)"))'.
 
 - Class: cmd_question
