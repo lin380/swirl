@@ -188,8 +188,8 @@
     It can sometimes be the case that you will need to use a function or two from a 
     package and very limited times. In cases like this it sometimes makes sense to 
     reference the downloaded, but not loaded, package via the '::' operator. For 
-    example to use the function 'tokenize()' from the 'quanteda' package, without 
-    loading it, you can type, 'quanteda::tokenize()', for example.
+    example to use the function 'tokens()' from the 'quanteda' package, without 
+    loading it, you can type, 'quanteda::tokens()', for example.
 
 - Class: text
   Output: The '::' operator is also helpful when used in combination with RStudio's 

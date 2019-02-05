@@ -58,13 +58,13 @@
 
 - Class: cmd_question
   Output: Now, some functions will turn simple vectors into more complex objects. 
-    Take 'tokenize()' from the 'quanteda' package. After providing this function 
+    Take 'tokens()' from the 'quanteda' package. After providing this function 
     with a character vector as an argument we get a new type of object, a list. 
     Let's do this now and assign the output to 'z'. I've already loaded the package 
-    so you can type 'z <- tokenize(y)'.
-  CorrectAnswer: z <- tokenize(y)
-  AnswerTests: omnitest(correctExpr='z <- tokenize(y)')
-  Hint: Type 'z <- tokenize(y)'.
+    so you can type 'z <- tokens(y)'.
+  CorrectAnswer: z <- tokens(y)
+  AnswerTests: omnitest(correctExpr='z <- tokens(y)')
+  Hint: Type 'z <- tokens(y)'.
 
 - Class: cmd_question
   Output: And let's see the type and structure of the object 'z' with 'str()'.
