@@ -39,4 +39,4 @@ vignettes/*.pdf
 # Rproj file
 *.Rproj
 
-swirl_courses-master/*
+_swirl_courses-master/*
