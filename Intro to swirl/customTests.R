@@ -22,17 +22,17 @@ getLog <- function(){
 }
 
 submit_log <- function(){
-  
+
   # Please edit the link below
-  pre_fill_link <- "https://docs.google.com/a/wfu.edu/forms/d/e/1FAIpQLSfJj_zC44lPovdDA0WsFZVKQMrt8-iE0JNIUD9xTfuskAdP8Q/viewform?entry.494320644"
-  
+  pre_fill_link <- "https://docs.google.com/forms/d/e/1FAIpQLScM7orxh-x7haCDKB2VWGJAuLBSm6vaOD_IK0CgE1DW7LTQvg/viewform"
+
   # Do not edit the code below
   if(!grepl("=$", pre_fill_link)){
     pre_fill_link <- paste0(pre_fill_link, "=")
   }
-  
+
   p <- function(x, p, f, l = length(x)){if(l < p){x <- c(x, rep(f, p - l))};x}
-  
+
   temp <- tempfile()
   log_ <- getLog()
   nrow_ <- max(unlist(lapply(log_, length)))
