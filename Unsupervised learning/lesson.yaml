@@ -712,3 +712,7 @@
   CorrectAnswer: NULL
   AnswerTests: submit_log()
   Hint: hint  
+
+- Class: video
+  Output: Would you like to watch a short video about ___?
+  VideoLink: http://address.of.video
