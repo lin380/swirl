@@ -21,7 +21,7 @@
   CorrectAnswer: 1 + 1
   AnswerTests: omnitest(correctExpr='1 + 1')
   Hint: Type 1 + 1 and press Enter.
-  
+
 - Class: text
   Output: "If you do it correctly, you will get a nice message. If not, then you will be
     provided a hint --this hint often includes what you need to type to get it right."
@@ -32,12 +32,12 @@
     happens."
   CorrectAnswer: 1 + 1
   AnswerTests: omnitest(correctExpr='1 + 1')
-  Hint: Type 1 + 1 and press Enter. That's your hint, go ahead and type it correctly 
+  Hint: Type 1 + 1 and press Enter. That's your hint, go ahead and type it correctly
     to move on to the next question.
 
 - Class: text
   Output: Another type of question you will get is a multiple choice question.
-  
+
 - Class: mult_question
   Output: Which statement do you think is true?
   CorrectAnswer: The first day of classes is Tuesday
@@ -46,7 +46,7 @@
   Hint: Tuesday, of course. ;)
 
 - Class: text
-  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then 
+  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then
     return by typing nxt()."
 
 - Class: text
@@ -56,11 +56,11 @@
 - Class: text
   Output: "That does it for this pre-lesson. I just wanted to give you a quick introduction
     to Swirl. I hope you like it."
-    
+
 - Class: text
   Output: "This concludes this lesson. At the end of each Swirl lesson you will be prompted
     to submit your progress via Google Forms. You can choose not to submit your progress if
-    you would rather complete the coding exercise again. If not, and you want to submit it 
+    you would rather complete the coding exercise again. If not, and you want to submit it
     just follow the instructions you are about to see..."
 
 - Class: mult_question

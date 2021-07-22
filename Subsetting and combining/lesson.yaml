@@ -8,26 +8,26 @@
 
 - Class: text
   Output: In this lesson, you will learn to manipulate R objects we worked with
-    in the lesson on Objects. Specifically we will see how to subset and combine 
+    in the lesson on Objects. Specifically we will see how to subset and combine
     both vectors and data frames.
-    
+
 - Class: text
   Output: "Don't forget that you can, temporarily, leave the lesson by typing play()
     and then return by typing nxt()."
 
 - Class: cmd_question
-  Output: Let's start by working with vectors and then we will pick up with data frames. 
-    To work with subsetting we will need some data to work with. Using your knowledge of R, 
+  Output: Let's start by working with vectors and then we will pick up with data frames.
+    To work with subsetting we will need some data to work with. Using your knowledge of R,
     create a vector containing numbers from 1 to 25 and assign the output to the variable 'x'.
   CorrectAnswer: x <- 1:25
   AnswerTests: any_of_exprs('x <- 1:25', 'x <- seq(25)')
   Hint: Type either 'x <- 1:25', or 'x <- seq(25)'.
 
 - Class: mult_question
-  Output: One way to view a subset of elements in an object is to use the 'head()' function. 
-    'head()' will give us the first elements of the object. If we run 'head(x)' we will get 
-    the first six elements. We can also add another argument to the function and get an 
-    arbitrary number of elements. So if I type 'head(x, 10)', how many elements to I 
+  Output: One way to view a subset of elements in an object is to use the 'head()' function.
+    'head()' will give us the first elements of the object. If we run 'head(x)' we will get
+    the first six elements. We can also add another argument to the function and get an
+    arbitrary number of elements. So if I type 'head(x, 10)', how many elements to I
     expect it to return?
   AnswerChoices: 1;6;10;25
   CorrectAnswer: 10
@@ -35,17 +35,17 @@
   Hint: 10!
 
 - Class: cmd_question
-  Output: The 'tail()' function works much the same but gives us the last elements of 
-    the object. Again, the default is six elements. Let's see the last 10 elements of 
+  Output: The 'tail()' function works much the same but gives us the last elements of
+    the object. Again, the default is six elements. Let's see the last 10 elements of
     the vector 'x' using 'tail()' now using what you've just learned.
   CorrectAnswer: tail(x, 10)
   AnswerTests: omnitest(correctExpr='tail(x, 10)')
   Hint: Type 'tail(x, 10)'.
 
 - Class: cmd_question
-  Output: Now, if we want to retrieve a subset somewhere in the middle of the vector we 
-    can't use 'head()' or 'tail()'. One common way to get sequential elements in a vector 
-    that come somewhere in the middle we use what is called 'bracket syntax', and it looks 
+  Output: Now, if we want to retrieve a subset somewhere in the middle of the vector we
+    can't use 'head()' or 'tail()'. One common way to get sequential elements in a vector
+    that come somewhere in the middle we use what is called 'bracket syntax', and it looks
     like this 'x[3:11]'. Go ahead and type this command and see what we get.
   CorrectAnswer: x[3:11]
   AnswerTests: omnitest(correctExpr='x[3:11]')
@@ -122,7 +122,7 @@
 
 - Class: text
   Output: Good job! Now let's quickly learn how to combine vectors and then move on to working with data frames.
-  
+
 
 - Class: cmd_question
   Output: One way to combine vectors is to use the 'c()' function. This will a vector the length of the sum of the lengths of all the individual vectors to combine. For example, let's combine some numeric vectors. Type 'c(1:5, 11:15, 21:25)' and see what you get.
@@ -152,7 +152,7 @@
   Output: Let's leave vectors now and turn to data frames -but we will see 'paste()' again!
 
 - Class: cmd_question
-  Output: As we saw in the Objects lesson, a data frame is a two-dimensional object comprised of groupings of vectors. Let's create a data frame to work with here so we can explore subsetting. Type 'df.a <- data.frame(1:26, letters)'. 
+  Output: As we saw in the Objects lesson, a data frame is a two-dimensional object comprised of groupings of vectors. Let's create a data frame to work with here so we can explore subsetting. Type 'df.a <- data.frame(1:26, letters)'.
   CorrectAnswer: df.a <- data.frame(1:26, letters)
   AnswerTests: omnitest(correctExpr='df.a <- data.frame(1:26, letters)')
   Hint: Type 'df.a <- data.frame(1:26, letters)'
@@ -177,7 +177,7 @@
 
 - Class: cmd_question
   Output: Let's do some subsetting! We can apply the same logic for subsetting as
-    we did to vectors but now, because we are working with a data frame there are 
+    we did to vectors but now, because we are working with a data frame there are
     two dimensions to consider when doing our subsetting. Let's make sure we know
     what they are by using 'dim(df.a)'.
   CorrectAnswer: dim(df.a)
@@ -185,47 +185,47 @@
   Hint: Type 'dim(df.a)'.
 
 - Class: cmd_question
-  Output: There are 26 rows and two columns. With this knowledge in mind, let's subset 
+  Output: There are 26 rows and two columns. With this knowledge in mind, let's subset
     the data frame using bracket syntax. Type 'df.a[1:10, 1:2]'.
   CorrectAnswer: df.a[1:10, 1:2]
   AnswerTests: omnitest(correctExpr='df.a[1:10, 1:2]')
   Hint: Type 'df.a[1:5, 1:5]'.
 
 - Class: text
-  Output: We get the first 10 rows and both the columns. This command was somewhat 
-    redundant because we didn't really subset the columns -we asked for both using '1:2'. 
-    In the case where we are only subsetting the number of rows (or columns), we don't need to 
-    even add the subset syntax for that position. Hence 'df.a[1:10, ] will return 
-    the exactly the same result as before. So remember, when subsetting a data frame 
-    always note that the rows subset goes in the first position and columns in the 
+  Output: We get the first 10 rows and both the columns. This command was somewhat
+    redundant because we didn't really subset the columns -we asked for both using '1:2'.
+    In the case where we are only subsetting the number of rows (or columns), we don't need to
+    even add the subset syntax for that position. Hence 'df.a[1:10, ] will return
+    the exactly the same result as before. So remember, when subsetting a data frame
+    always note that the rows subset goes in the first position and columns in the
     second -just as we see in the output of the 'dim()' function.
 
 - Class: cmd_question
-  Output: For completeness, let's subset an arbitrary set of rows and only retrieve 
+  Output: For completeness, let's subset an arbitrary set of rows and only retrieve
     the second column. Type 'df.a[c(1,5,10,15), 2]'.
   CorrectAnswer: df.a[c(1,5,10,15), 2]
   AnswerTests: omnitest(correctExpr='df.a[c(1,5,10,15), 2]')
   Hint: Type 'df.a[c(1,5,10,15), 2]'
 
 - Class: text
-  Output: You might be surpised by the output. It no longer appears in tablular form. 
-    That's to be expected as a single column is no longer two dimensional, rather 
+  Output: You might be surpised by the output. It no longer appears in tablular form.
+    That's to be expected as a single column is no longer two dimensional, rather
     its a one dimensional vector!
 
 - Class: cmd_question
-  Output: Returning to our names, we can, just as we did with vectors, subset by 
-    names with data frames. At the moment only our columns have names, so 
-    let's use them. Let's get the first five rows from the 'Letters' column, 
-    that is column number '2', this time using the column name. 
+  Output: Returning to our names, we can, just as we did with vectors, subset by
+    names with data frames. At the moment only our columns have names, so
+    let's use them. Let's get the first five rows from the 'Letters' column,
+    that is column number '2', this time using the column name.
     Type 'df.a[1:5, "Letters"]'.
   CorrectAnswer: df.a[1:5, "Letters"]
   AnswerTests: omnitest(correctExpr='df.a[1:5, "Letters"]')
   Hint: Type 'df.a[1:5, "Letters"]'.
 
 - Class: cmd_question
-  Output: I mentioned earlier in this lesson that the function 'subset()' would be 
-    quite helpful for data frames. Well, here we are. If we want to perform a logical 
-    evaluation on one of the columns, we use this type of command -- 'subset(df.a, Numbers > 20)'. 
+  Output: I mentioned earlier in this lesson that the function 'subset()' would be
+    quite helpful for data frames. Well, here we are. If we want to perform a logical
+    evaluation on one of the columns, we use this type of command -- 'subset(df.a, Numbers > 20)'.
     Enter it and see what happens.
   CorrectAnswer: subset(df.a, Numbers > 20)
   AnswerTests: omnitest(correctExpr='subset(df.a, Numbers > 20)')

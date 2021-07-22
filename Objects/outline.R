@@ -1,6 +1,6 @@
 
 # ABOUT -------------------------------------------------------------------
-
+# Lesson: Objects
 # Outline for lesson
 
 # rm(list = ls())
@@ -24,7 +24,7 @@ class(y)
 
 var.char.words <- c("This", "is", "a", "sentence.")
 var.char.sents <- c("This is a sentence.")
-                    
+
                "This is another sentence.",
                "This is yet another sentence.",
                "Tan you believe it another sentence?")

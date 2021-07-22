@@ -7,15 +7,15 @@
   Version: 1.0
 
 - Class: text
-  Output: In this lesson, you will be introduced more formally to functions and 
+  Output: In this lesson, you will be introduced more formally to functions and
     downloadable collections of functions known as 'packages'.
-    
+
 - Class: text
-  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then 
+  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then
     return by typing nxt()."
 
 - Class: text
-  Output: Functions are one of the fundamental building blocks of the R language. They are small 
+  Output: Functions are one of the fundamental building blocks of the R language. They are small
     pieces of reusable code that can be treated like any other R object.
 
 - Class: text
@@ -25,7 +25,7 @@
 
 - Class: cmd_question
   Output: "Let's try using a few basic functions just for fun. The Sys.Date()
-    function returns a string representing today's date. Type Sys.Date() below 
+    function returns a string representing today's date. Type Sys.Date() below
       and see what happens."
   CorrectAnswer: Sys.Date()
   AnswerTests: omnitest(correctExpr='Sys.Date()')
@@ -33,14 +33,14 @@
 
 - Class: text
   Output: "Most functions in R return a value. Functions like Sys.Date() return a
-    value based on your computer's environment, while other functions manipulate 
+    value based on your computer's environment, while other functions manipulate
     input data in order to compute a return value."
 
 - Class: cmd_question
   Output: "The mean() function takes a vector of numbers as input, and returns
     the average of all of the numbers in the input vector. Inputs to functions
     are often called arguments. Providing arguments to a function is also
-    sometimes called passing arguments to that function. Arguments you want to 
+    sometimes called passing arguments to that function. Arguments you want to
     pass to a function go inside the function's parentheses. Try passing the argument
     c(2, 4, 5) to the mean() function."
   CorrectAnswer: mean(c(2, 4, 5))
@@ -54,20 +54,20 @@
     length of the vector.
 
 - Class: text
-  Output: "There are many functions available in the default installation of R, 'mean()' 
-    is one of them You can also write your own functions, or custom functions. 
+  Output: "There are many functions available in the default installation of R, 'mean()'
+    is one of them You can also write your own functions, or custom functions.
     Let's take a look at custom functions now."
 
 - Class: text
-  Output: The goal in writing a custom function is to create a reusable set of R 
-    commands to avoid coding redundancy and also to avoid introducing errors that 
+  Output: The goal in writing a custom function is to create a reusable set of R
+    commands to avoid coding redundancy and also to avoid introducing errors that
     can occur when we attempt to retype a set of previous commands.
 
 - Class: cmd_question
-  Output: When you create a custom function that function can be created as part of 
-    the analysis script 'inline' or it can be 'imported' from another script that's sole 
-    purpose is to organize useful functions for potential use in multiple analyses. 
-    To import functions from another script we can use the function 'source()' and 
+  Output: When you create a custom function that function can be created as part of
+    the analysis script 'inline' or it can be 'imported' from another script that's sole
+    purpose is to organize useful functions for potential use in multiple analyses.
+    To import functions from another script we can use the function 'source()' and
     include a path to the script with the functions we want to import. I've already
     'sourced' the script with the functions. Let's take a look what functions we have
     available to use using 'ls()'.
@@ -161,7 +161,7 @@
 
 - Class: text
   Output: "R comes 'pre-loaded' with a set of common packages known as the 'base packages'. To extend functionality, however, we can use R to search and download new packages."
-  
+
 - Class: cmd_question
   Output: In the R console we can use the function 'install.packages()' to target a specific package and download it. Let's do that now. Let's download the 'quanteda' package now. Type 'install.packages("quanteda")'. You may be asked to select a mirror -aka a site to download from. Just select any mirror and the download will begin and print the status of the download in the console.
   CorrectAnswer: install.packages("quanteda")
@@ -184,33 +184,33 @@
   Hint: Type 'sessionInfo()'.
 
 - Class: text
-  Output: It is not always necessary to load an entire package into the R workspace. 
-    It can sometimes be the case that you will need to use a function or two from a 
-    package and very limited times. In cases like this it sometimes makes sense to 
-    reference the downloaded, but not loaded, package via the '::' operator. For 
-    example to use the function 'tokens()' from the 'quanteda' package, without 
+  Output: It is not always necessary to load an entire package into the R workspace.
+    It can sometimes be the case that you will need to use a function or two from a
+    package and very limited times. In cases like this it sometimes makes sense to
+    reference the downloaded, but not loaded, package via the '::' operator. For
+    example to use the function 'tokens()' from the 'quanteda' package, without
     loading it, you can type, 'quanteda::tokens()', for example.
 
 - Class: text
-  Output: The '::' operator is also helpful when used in combination with RStudio's 
-    TAB functionality. If you type 'quanteda::' and then hit the TAB key on your 
-    keyboard a list of the available functions in this package appears. This can be 
+  Output: The '::' operator is also helpful when used in combination with RStudio's
+    TAB functionality. If you type 'quanteda::' and then hit the TAB key on your
+    keyboard a list of the available functions in this package appears. This can be
     very helpful to explore functions on the fly.
 
 - Class: text
-  Output: Furthermore, many, but not all, packages come with tutorials, or 'vignettes'. 
+  Output: Furthermore, many, but not all, packages come with tutorials, or 'vignettes'.
     To read a vignette, browse the 'Packages' pane in RStudio and find the package. Then
-    Look at the lines before the 'Help Pages'. If there is a vignette, it will be listed 
-    there. 
+    Look at the lines before the 'Help Pages'. If there is a vignette, it will be listed
+    there.
 
 - Class: text
-  Output: If a package does or does not have vignette it's often worth it to search the internet 
+  Output: If a package does or does not have vignette it's often worth it to search the internet
     for other tutorials to get experience with how R users are using the package.
 
 - Class: text
-  Output: This concludes this lesson on packages and functions. Functions are a 
-    powerful programming tool for efficient and reproducible results. There is 
-    much more to learn about functions, but we've covered the bases. I encourage 
+  Output: This concludes this lesson on packages and functions. Functions are a
+    powerful programming tool for efficient and reproducible results. There is
+    much more to learn about functions, but we've covered the bases. I encourage
     you to do your own research.
 
 - Class: mult_question

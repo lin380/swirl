@@ -1,6 +1,6 @@
 
 # ABOUT -------------------------------------------------------------------
-
+# Lesson: Variables and vectors
 # Outline for lesson
 
 5 + 7 # addition
@@ -24,7 +24,7 @@ z * 2 + 1000
 # - Arithmetic operators
 # - Variables
 # - Vectors
-# - recycling
-# - moving within the console (up/ down arrows)
-# - tab completion
+# - Recycling
+# - Moving within the console (up/ down arrows)
+# - Tab completion
 
