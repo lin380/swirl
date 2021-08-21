@@ -213,11 +213,4 @@
     data analysis so you've got a solid start! Spend some time playing with them on
     your own and reading up on the documentation online or with the '?' command.
 
-- Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
-  AnswerChoices: Yes;No
-  CorrectAnswer: NULL
-  AnswerTests: submit_log()
-  Hint: hint
 

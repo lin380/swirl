@@ -705,14 +705,3 @@
 - Class: text
   Output: Congratulations! You've made it through this introduction to unsupervised learning.
 
-- Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
-  AnswerChoices: Yes;No
-  CorrectAnswer: NULL
-  AnswerTests: submit_log()
-  Hint: hint
-
-- Class: video
-  Output: Would you like to watch a short video about ___?
-  VideoLink: http://address.of.video

@@ -5,13 +5,13 @@
   Type: Standard
   Organization: WFU
   Version: 1.0
-  
+
 - Class: text
   Output: In this lesson, you will learn more about data frame objects in R and how to
     manipulate them using the `dplyr` package.
-  
+
 - Class: text
-  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then 
+  Output: "Don't forget that you can, temporarily, leave the lesson by typing play() and then
     return by typing nxt()."
 
 - Class: cmd_question
@@ -213,11 +213,4 @@
 
 - Class: text
   Output: That wraps up this lesson on data manipulation with the `dplyr` package. The functions we covered here are the most common ones you will encounter and use -but there are many more that do a range of useful tasks!
-  
-- Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
-  AnswerChoices: Yes;No
-  CorrectAnswer: NULL
-  AnswerTests: submit_log()
-  Hint: hint  
+
