@@ -27,7 +27,7 @@
     provided a hint --this hint often includes what you need to type to get it right."
 
 - Class: cmd_question
-  Output: "Let's to this command wrong this time. So, imagine we were asked to type '1+1'
+  Output: "Let's do this command wrong this time. So, imagine we were asked to type '1+1'
     and hit Enter, but instead we entered '1 + 2' on accident. Do that now and see what
     happens."
   CorrectAnswer: 1 + 1
@@ -57,16 +57,3 @@
   Output: "That does it for this pre-lesson. I just wanted to give you a quick introduction
     to Swirl. I hope you like it."
 
-- Class: text
-  Output: "This concludes this lesson. At the end of each Swirl lesson you will be prompted
-    to submit your progress via Google Forms. You can choose not to submit your progress if
-    you would rather complete the coding exercise again. If not, and you want to submit it
-    just follow the instructions you are about to see..."
-
-- Class: mult_question
-  Output: Would you like to submit the log of this lesson to Google Forms so
-    that your instructor may evaluate your progress?
-  AnswerChoices: Yes;No
-  CorrectAnswer: NULL
-  AnswerTests: submit_log()
-  Hint: hint
