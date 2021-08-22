@@ -187,12 +187,12 @@
   Hint: 2264, of course! ;)
 
 - Class: text
-  Output: Let's now move to visualizing our data with graphics. We've already touched
-    on the Grammar of Graphics in a previous lesson, but it's worth providing a quick review.
+  Output: Let's now move to visualizing our data with graphics. The approach for
+    building graphics in R is called the Grammar of Graphics.
 
 - Class: text
-  Output: The Grammar of Graphics is built on three components -data, mappings, and
-    geometries. The 'ggplot2' package incorporates this approach explicitly in creating graphics.
+  Output: The Grammar of Graphics is built on three principle components. 1. Data,
+    2. Mappings or 'aesthetics' as they are called, and 3. Geometries, or 'geoms'.
 
 - Class: cmd_question
   Output: The data component is the data frame that contains the data we would like to
