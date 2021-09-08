@@ -17,4 +17,4 @@ swirl_options(swirl_logging = TRUE) # allow logging for submission to Google For
   )
 }
 
-source(file.path(.get_course_path(), "dsfl-swirl", "Packages and functions", "scripts/example_functions.R"))
+source(file.path(.get_course_path(), "swirl", "Packages and functions", "scripts/example_functions.R"))

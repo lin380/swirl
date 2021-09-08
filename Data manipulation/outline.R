@@ -3,7 +3,7 @@
 
 # Outline for lesson
 
-# 
+#
 library(dplyr)
 library(stringr)
 
@@ -53,7 +53,7 @@ belc <- select(belc, -texts, -age)
 belc
 
 # by ...
-group_by(belc, group) %>% 
+group_by(belc, group) %>%
   mutate(avg.years = mean(years))
 
 # Summarize
@@ -61,7 +61,7 @@ group_by(belc, group) %>%
 mean(belc$years)
 
 # by...
-group_by(belc, group) %>% 
+group_by(belc, group) %>%
   summarise(avg.years = mean(years))
 
 
