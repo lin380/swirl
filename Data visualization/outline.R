@@ -41,7 +41,7 @@ xtabs(~ carat.groups + cut, data = diamonds)
 p <- ggplot(data = diamonds)
 
 # All categorical (1x3)
-p + geom_bar(aes(x = color)) 
+p + geom_bar(aes(x = color))
 p + geom_bar(aes(x = color, fill = cut))
 p + geom_bar(aes(x = color, fill = cut)) + facet_wrap(~ clarity)
 
@@ -57,7 +57,7 @@ p + geom_histogram(aes(x = carat), binwidth = .1)
 p + geom_point(aes(x = carat, y = price))
 p + geom_point(aes(x = carat, y = price)) + geom_smooth(aes(x = carat, y = price))
 
-p <- ggplot(diamonds, aes(x = carat, y = price)) 
+p <- ggplot(diamonds, aes(x = carat, y = price))
 
 p + geom_point() + geom_smooth()
 p + geom_point() + geom_smooth() + facet_wrap(~ cut)
@@ -90,20 +90,20 @@ belc.words <-
   belc %>% # tidy words
   unnest_tokens(words, texts, token = "regex", pattern = " ")
 
-belc.words <- 
+belc.words <-
   belc.words %>% # remove non-language in 'words'
   filter(str_detect(words, "\\/"))
 
-belc.words <- 
+belc.words <-
   belc.words %>% # separate 'words' into 'word' and 'lang' columns
   separate(words, c("word", "lang"), sep = "\\/")
 belc.words$chars <- belc.words$word %>% nchar()
 belc.words
 
 belc <- belc.words[complete.cases(belc.words), ]
-belc %>% 
-  filter(str_detect(lang, "eng")) %>% 
-  group_by(id, group) %>% 
+belc %>%
+  filter(str_detect(lang, "eng")) %>%
+  group_by(id, group) %>%
   count()
 
 # Dependent
@@ -122,7 +122,7 @@ ggplot(belc, aes(x = chars)) + geom_histogram(binwidth = .5)
 ggplot(belc, aes(x = chars)) + geom_density()
 
 # Dependent + Independent
-# 
+#
 
 
 # Diamonds ----------------------------------------------------------------

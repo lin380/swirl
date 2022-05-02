@@ -1,6 +1,41 @@
-# swirl
+# Swirl R Programming Exercises
 
-Swirl lessons for Linguistics 380. 
+## Installation
+
+The swirl lessons can be downloaded within an R console by running:
+
+```r
+install.packages("swirl")
+library("swirl")
+install_course_github("lin380", "swirl")
+```
+
+To load and start a lesson run: 
+
+```r
+swirl()
+```
+
+and follow the instructions to get started and to select a lesson.
+
+## Lessons
+
++ Intro to swirl
++ Workspace
++ Variables and vectors
++ Objects
++ Packages and functions
++ Data visualization
++ Loops and vectorization
++ Regular expressions
++ Data manipulation
++ Significance testing
++ Supervised learning
++ Unsupervised learning
++ Rendering RMarkdown (not available)
++ Compiling research projects (not available)
+
+## Acknowledgements
 
 These lessons are adapted from the courses available on [swirldev on GitHub](https://github.com/swirldev/swirl_courses).
 
